@@ -9,7 +9,7 @@ class SearchController extends Controller
 {
 
     // Google Api Key
-    public $apiKey = "AIzaSyClKecUuAwqAo5ZNUdQrX_QfyOONjM-Lvo";
+    public $apiKey = env("GOOGLE_MAP_API_KEY");
 
     // Search place information from keyword
     public function SearchPlaceGeo(Request $request)
@@ -30,7 +30,7 @@ class SearchController extends Controller
 
     // Search Restaurant information lists from place information
     public function SearchRestaurant($PlaceGeo)
-    {   
+    {
         // get latitude of main place
         $lat = $PlaceGeo['candidates'][0]['geometry']['location']['lat'];
 
